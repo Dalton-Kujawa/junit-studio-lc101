@@ -1,6 +1,9 @@
 package main;
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class BalancedBrackets {
     /**
      * The function BalancedBrackets should return true if and only if
@@ -24,12 +27,17 @@ public class BalancedBrackets {
     public static boolean hasBalancedBrackets(String str) {
         int brackets = 0;
         for (char ch : str.toCharArray()) {
-            if (ch == '[') {
-                brackets++;
-            } else if (ch == ']') {
-                brackets--;
+            if(brackets == 0 && ch == ']') {
+                return false;
             }
+                if (ch == '[') {
+                    brackets++;
+                } else if (ch == ']') {
+                    brackets--;
+                }
         }
         return brackets == 0;
     }
+
+
 }
